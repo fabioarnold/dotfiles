@@ -1,3 +1,34 @@
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 set nocompatible " no vi compatibility
 set mouse=a " mouse editing
 
@@ -24,12 +55,13 @@ set incsearch " feedback while typing
 set ignorecase
 set smartcase " override ignorecase when we have upper case chars
 set wrapscan " continue search at top
+" nnoremap <esc> :noh<return><esc> " disable search highlighting when pressing escape
 
 set showcmd " always show command
 
 " syntax hightlighting
-filetype plugin on
-filetype indent on
+" filetype plugin on
+" filetype indent on
 syntax on
 colorscheme desert
 colors desert
@@ -60,3 +92,6 @@ set guifont=Monaco\ 11
 
 " youcompleteme
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" let g:ycm_server_use_vim_stdout = 1
+" let g:ycm_server_log_level = 'debug'
+nnoremap <C-j> :YcmCompleter GoTo<CR>
